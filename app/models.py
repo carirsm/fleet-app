@@ -1,0 +1,9 @@
+from app import db
+
+class Truck(db.Model):
+    id = db.Column(db.integer, primary_key = True)
+    truck_number = db.Column(db.String(50), nullable=False)
+    model = db.Column(db.String(100))
+    license_plate = db.Column(db.String(20))
+    vin = db.Column(db.String(17))
+    status = db.Column(db.String(50), default='available')
