@@ -1,7 +1,7 @@
 from app import db
 
 class Truck(db.Model):
-    id = db.Column(db.integer, primary_key = True)
+    id = db.Column(db.Integer, primary_key = True)
     truck_number = db.Column(db.String(50), nullable=False)
     model = db.Column(db.String(100))
     license_plate = db.Column(db.String(20))
