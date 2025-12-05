@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Trucks</title>
+    </head>
+    <body>
+        <h1>Truck Fleet</h1>
+
+        <a href="/trucks/new">Add New Truck</a>
+
+        <table border="1">
+            <thread>
+                <tr>
+                    <th>ID</th>
+                    <th>Truck Number</th>
+                    <th>Model</th>
+                    <th>License Plate</th>
+                    <th>Vin</th>
+                    <th>Status</th>
+                </tr>
+            </thread>
+            <tbody>
+                {% for truck in trucks %}
+                <tr>
+                    <td>{{ truck.id }}</td>
+                    <td>{{ truck.truck_number }}</td>
+                    <td>{{ truck.model }}</td>
+                    <td>{{ truck.license_plate }}</td>
+                    <td>{{ truck.vin }}</td>
+                    <td>{{ truck.status }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </body>
+</html>

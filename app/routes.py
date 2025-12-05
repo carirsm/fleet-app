@@ -10,7 +10,8 @@ def index():
 
 @main.route('/trucks')
 def trucks():
-    return "<h1>Truck list goes here</h1>"
+    all_trucks = Truck.query.all()
+    return render_template('trucks.html', trucks=all_trucks)
 
 @main.route('/trucks/new')
 def new_truck():
