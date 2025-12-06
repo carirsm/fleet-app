@@ -17,6 +17,7 @@
                     <th>License Plate</th>
                     <th>Vin</th>
                     <th>Status</th>
+                    <th>Actions</th>
                 </tr>
             </thread>
             <tbody>
@@ -28,6 +29,9 @@
                     <td>{{ truck.license_plate }}</td>
                     <td>{{ truck.vin }}</td>
                     <td>{{ truck.status }}</td>
+                    <td>
+                        <a href="/trucks/{{ truck.id }}/edit">Edit</a>
+                    </td>
                 </tr>
                 {% endfor %}
             </tbody>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Edit Truck</title>
+    </head>
+    <body>
+        <h1>Edit Truck</h1>
+
+        <form action="/trucks/{{ truck.id }}/update" method="POST">
+
+            <label>Truck Number:</label>
+            <input type="text" name="truck_number" value="{{ truck.truck_number }}" required> <br><br>
+            
+            <label>Model:</label>
+            <input type="text" name="model" value="{{ truck.model }}"> <br><br>
+            
+            <label>License Plate:</label>
+            <input type="text" name="license_plate" value="{{ truck.license_plate }}"> <br><br>
+            
+            <label>VIN:</label>
+            <input type="text" name="vin" value="{{ truck.vin }}"> <br><br>
+
+            <label>Status:</label>
+            <select name="status">
+                <option value="available" {% if truck.status == 'available' %}selected{% endif %}>Available</option>
+                <option value="needs_maintenance" {% if truck.status == 'needs_maintenance' %}selected{% endif %}>Needs Maintenance</option>
+                <option value="in_use" {% if truck.status == 'in_use' %}selected{% endif %}>In Use</option>
+            </select><br><br>
+
+            <button type="submit">Update Truck</button>
+            <a href="/trucks">Cancel</a>
+        </form>
+    </body>
+</html>

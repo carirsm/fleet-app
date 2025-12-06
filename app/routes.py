@@ -4,15 +4,18 @@ from app.models import Truck
 
 main = Blueprint('main', __name__)
 
+# main route
 @main.route('/')
 def index():
     return '<h1>Welcome!</h1><p>This is the Main Index page</p>'
 
+# truck list
 @main.route('/trucks')
 def trucks():
     all_trucks = Truck.query.all()
     return render_template('trucks.html', trucks=all_trucks)
 
+# create trucks
 @main.route('/trucks/new')
 def new_truck():
     return render_template('new_truck.html')
@@ -37,3 +40,23 @@ def create_truck():
     db.session.commit()
 
     return redirect(url_for('main.trucks'))
+
+# edit trucks
+@main.route('/trucks/<int:id>/edit')
+def edit_truck(id):
+    truck = Truck.query.get_or_404(id)
+    return render_template('edit_truck.html', truck=truck)
+
+@ main.route('/trucks/<int:id>/update', methods=['POST'])
+def update_truck(id):
+    truck = Truck.query.get_or_404(id)
+
+    truck.truck_number = request.form.get('truck_number')
+    truck.model = request.form.get('model')
+    truck.license_plate = request.form.get('license_plate')
+    truck.vin = request.form.get('vin')
+    truck.status = request.form.get('status')
+
+    db.session.commit()
+    
+    return redirect(url_for('main.trucks')) 
