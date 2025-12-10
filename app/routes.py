@@ -60,3 +60,13 @@ def update_truck(id):
     db.session.commit()
     
     return redirect(url_for('main.trucks')) 
+
+# delete trucks
+@main.route('/trucks/<int:id>/delete', methods=['POST'])
+def delete_truck():
+    truck = Truck.query.get_or_404(id)
+
+    db.session.delete(truck)
+    db.session.commit()
+
+    return redirect(url_for('main.trucks'))
