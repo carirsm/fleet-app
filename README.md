@@ -5,4 +5,5 @@ Fleet management system built with Python / Flask to help manage truck fleet ope
 (Coming Soon)
 
 # Features
+• Add, edit, and delete trucks
 (In Progress)

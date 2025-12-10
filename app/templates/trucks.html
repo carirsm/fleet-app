@@ -17,6 +17,7 @@
                     <th>License Plate</th>
                     <th>Vin</th>
                     <th>Status</th>
+                    <th>Last Updated</th>
                     <th>Actions</th>
                 </tr>
             </thread>
@@ -29,6 +30,7 @@
                     <td>{{ truck.license_plate }}</td>
                     <td>{{ truck.vin }}</td>
                     <td>{{ truck.status }}</td>
+                    <td>{{ truck.last_updated.strftime('%Y-%m-%d %H:%M') if truck.last_updated else 'N/A' }}</td>
                     <td>
                         <a href="/trucks/{{ truck.id }}/edit">Edit</a>
                         <form action="trucks/{{ truck.id }}/delete" method="POST" style="display:inline;">
