@@ -2,8 +2,8 @@ from app import db
 
 class Truck(db.Model):
     id = db.Column(db.Integer, primary_key = True)
-    truck_number = db.Column(db.String(50), nullable=False)
+    truck_number = db.Column(db.String(10), nullable=False)
     model = db.Column(db.String(100))
-    license_plate = db.Column(db.String(20))
+    license_plate = db.Column(db.String(7))
     vin = db.Column(db.String(17))
     status = db.Column(db.String(50), default='available')
